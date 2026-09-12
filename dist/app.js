@@ -143,7 +143,7 @@ window.addEventListener('scroll',()=>{if(!cinemaFrame)cinemaFrame=requestAnimati
 const reel=node('section','ending-reel');reel.id='ending-reel';reel.setAttribute('aria-label','缓缓流动的回忆胶片');
 const reelToggle=node('button','text-button','暂停播放');reelToggle.id='reel-toggle';
 const reelViewport=node('div','reel-viewport');reelViewport.tabIndex=0;reelViewport.setAttribute('aria-label','回忆照片，点击照片可放大');
-const reelTrack=node('div','reel-track');const reelGroup=node('div','reel-group');
+const reelTrack=node('div','reel-track');reelTrack.style.animationDuration=(config.endingPhotos.length*7)+'s';const reelGroup=node('div','reel-group');
 const reelDialog=node('dialog','reel-dialog');reelDialog.setAttribute('aria-label','回忆照片大图');const reelClose=node('button','secondary','关闭 ×');const reelLarge=node('img');reelClose.onclick=()=>reelDialog.close();reelDialog.append(reelClose,reelLarge);document.body.append(reelDialog);
 let reelManual=false,reelVisible=false,reelHover=false,reelTouch=false,reelFocus=false;
 function reelState(){const paused=reelManual||!reelVisible||document.hidden||reelHover||reelTouch||reelFocus||reelDialog.open||reducedMotion.matches;reelTrack.style.animationPlayState=paused?'paused':'running';reelToggle.textContent=reelManual?'播放胶片':'暂停播放';reelToggle.setAttribute('aria-pressed',String(reelManual));reelToggle.hidden=reducedMotion.matches;reel.classList.toggle('reel-static',reducedMotion.matches);}
@@ -158,4 +158,5 @@ for(const event of ['pointerup','pointercancel'])window.addEventListener(event,(
 reelViewport.addEventListener('focusin',()=>{reelFocus=document.activeElement.matches(':focus-visible');reelState();});reelViewport.addEventListener('focusout',()=>{queueMicrotask(()=>{reelFocus=reelViewport.contains(document.activeElement)&&document.activeElement.matches(':focus-visible');reelState();});});
 reelDialog.addEventListener('close',()=>{reelState();});reelDialog.addEventListener('click',e=>{if(e.target===reelDialog){const r=reelDialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)reelDialog.close();}});
 new IntersectionObserver(entries=>{reelVisible=entries[0].isIntersecting;reelState();},{threshold:.05}).observe(reelViewport);document.addEventListener('visibilitychange',reelState);reducedMotion.addEventListener('change',reelState);reelState();
+
 

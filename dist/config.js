@@ -1,6 +1,6 @@
 // 所有需要个性化的文字、照片和音乐都在这里。图片放入 dist/photos 后填写相对地址。
 export const config = {
-  endingPhotos: ['photos/ending-1.jpg','photos/ending-2.jpg','photos/ending-3.jpg','photos/ending-4.jpg','photos/ending-5.jpg','photos/ending-6.jpg'],
+  endingPhotos: ['photos/ending-1.jpg','photos/ending-2.jpg','photos/ending-3.jpg','photos/ending-4.jpg','photos/ending-5.jpg','photos/ending-6.jpg','photos/ending-7.jpg','photos/ending-8.jpg','photos/ending-9.jpg','photos/ending-10.jpg','photos/ending-11.jpg','photos/ending-12.jpg','photos/ending-13.jpg','photos/ending-14.jpg','photos/ending-15.jpg','photos/ending-16.jpg','photos/ending-17.jpg','photos/ending-18.jpg'],
   wishReward: {src:'photos/wishes-complete.jpg', caption:'心想事成！'},
   name: '阿贾', from: '树树', music: '', // 例如 music: 'music/birthday.mp3'，留空使用轻柔的合成音乐。
   closing: '开开心心，健健康康～生活要超级幸福，永葆好奇心和创造力，一路顺遂～',
@@ -29,5 +29,6 @@ export const config = {
     "LOVE U"
 ]
 };
+
 
 
