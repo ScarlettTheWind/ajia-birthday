@@ -31,6 +31,7 @@
 (()=>{
 // 所有需要个性化的文字、照片和音乐都在这里。图片放入 dist/photos 后填写相对地址。
 const config = {
+  endingPhotos: ['photos/ending-1.jpg','photos/ending-2.jpg','photos/ending-3.jpg','photos/ending-4.jpg','photos/ending-5.jpg','photos/ending-6.jpg'],
   wishReward: {src:'photos/wishes-complete.jpg', caption:'心想事成！'},
   name: '阿贾', from: '树树', music: '', // 例如 music: 'music/birthday.mp3'，留空使用轻柔的合成音乐。
   closing: '开开心心，健健康康～生活要超级幸福，永葆好奇心和创造力，一路顺遂～',
@@ -220,6 +221,26 @@ for(let i=0;i<12;i++){const star=node('span','','✧');star.style.left=`${8+(i*2
 let cinemaFrame=0;
 function sceneProgress(){cinemaFrame=0;const rect=$('birthday').getBoundingClientRect();const progress=reducedMotion.matches?1:Math.max(0,Math.min(1,(innerHeight-rect.top)/(innerHeight*.6)));$('birthday').style.setProperty('--night',progress);}
 window.addEventListener('scroll',()=>{if(!cinemaFrame)cinemaFrame=requestAnimationFrame(sceneProgress);},{passive:true});window.addEventListener('resize',sceneProgress);sceneProgress();
+
+// Ending reel: one accessible set plus a visual-only copy for seamless looping.
+const reel=node('section','ending-reel');reel.id='ending-reel';reel.setAttribute('aria-label','缓缓流动的回忆胶片');
+const reelToggle=node('button','text-button','暂停播放');reelToggle.id='reel-toggle';
+const reelViewport=node('div','reel-viewport');reelViewport.tabIndex=0;reelViewport.setAttribute('aria-label','回忆照片，点击照片可放大');
+const reelTrack=node('div','reel-track');const reelGroup=node('div','reel-group');
+const reelDialog=node('dialog','reel-dialog');reelDialog.setAttribute('aria-label','回忆照片大图');const reelClose=node('button','secondary','关闭 ×');const reelLarge=node('img');reelClose.onclick=()=>reelDialog.close();reelDialog.append(reelClose,reelLarge);document.body.append(reelDialog);
+let reelManual=false,reelVisible=false,reelHover=false,reelTouch=false,reelFocus=false;
+function reelState(){const paused=reelManual||!reelVisible||document.hidden||reelHover||reelTouch||reelFocus||reelDialog.open||reducedMotion.matches;reelTrack.style.animationPlayState=paused?'paused':'running';reelToggle.textContent=reelManual?'播放胶片':'暂停播放';reelToggle.setAttribute('aria-pressed',String(reelManual));reelToggle.hidden=reducedMotion.matches;reel.classList.toggle('reel-static',reducedMotion.matches);}
+function openReel(index){reelLarge.src=config.endingPhotos[index];reelLarge.alt=`回忆照片 ${index+1}`;reelDialog.showModal();reelState();}
+config.endingPhotos.forEach((src,i)=>{const button=node('button','reel-photo');button.type='button';button.dataset.photo=String(i);button.setAttribute('aria-label',`放大回忆照片 ${i+1}`);const img=node('img');img.src=src;img.alt=`回忆照片 ${i+1}`;img.loading='lazy';img.decoding='async';button.append(img,node('span','',String(i+1).padStart(2,'0')+' / MEMORIES'));reelGroup.append(button);});
+const reelCopy=reelGroup.cloneNode(true);reelCopy.setAttribute('aria-hidden','true');reelCopy.querySelectorAll('button').forEach(b=>b.tabIndex=-1);reelTrack.append(reelGroup,reelCopy);reelViewport.append(reelTrack);reel.append(reelToggle,reelViewport,node('p','reel-last-line','照片会绕回来，我们的故事会继续。'));$('closing').after(reel);
+reelToggle.onclick=()=>{reelManual=!reelManual;reelState();};
+reelViewport.addEventListener('click',e=>{const b=e.target.closest('[data-photo]');if(b)openReel(Number(b.dataset.photo));});
+reelViewport.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse'){reelHover=true;reelState();}});reelViewport.addEventListener('pointerleave',()=>{reelHover=false;reelState();});
+reelViewport.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse'){reelTouch=true;reelState();}},{passive:true});
+for(const event of ['pointerup','pointercancel'])window.addEventListener(event,()=>{reelTouch=false;reelState();},{passive:true});
+reelViewport.addEventListener('focusin',()=>{reelFocus=document.activeElement.matches(':focus-visible');reelState();});reelViewport.addEventListener('focusout',()=>{queueMicrotask(()=>{reelFocus=reelViewport.contains(document.activeElement)&&document.activeElement.matches(':focus-visible');reelState();});});
+reelDialog.addEventListener('close',()=>{reelState();});reelDialog.addEventListener('click',e=>{if(e.target===reelDialog){const r=reelDialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)reelDialog.close();}});
+new IntersectionObserver(entries=>{reelVisible=entries[0].isIntersecting;reelState();},{threshold:.05}).observe(reelViewport);document.addEventListener('visibilitychange',reelState);reducedMotion.addEventListener('change',reelState);reelState();
 
 
 })();
