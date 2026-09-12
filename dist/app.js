@@ -103,11 +103,11 @@ function stopCamera(message='摄像头已关闭，可以重新开启或点击吹
   session++;cancelAnimationFrame(raf);raf=0;stream?.getTracks().forEach(t=>t.stop());stream=null;$('video').srcObject=null;$('video').hidden=true;
   landmarker?.close();landmarker=null;$('start-camera').disabled=false;$('status').textContent=message;$('cake-scene').classList.remove('windy');meter.reset();$('wind-progress').value=0;
 }
-function finish(gesture){if(done||finishing)return;finishing=true;stopCamera('许愿完成');$('camera-panel').hidden=true;$('gesture').hidden=true;$('blow').hidden=true;document.querySelectorAll('.candle').forEach((c,i)=>setTimeout(()=>c.classList.add('out'),i*250));setTimeout(()=>{done=true;finishing=false;$('success').hidden=false;$('success-note').textContent=gesture?'今年的蜡烛，我们隔着屏幕一起吹灭啦。':'愿望交给时间，今天的快乐先归你。';document.querySelector('.candles').setAttribute('aria-label','蜡烛已全部熄灭');$('reset').hidden=false;celebrate();},1200);}
+function finish(gesture){if(done||finishing)return;finishing=true;stopCamera('许愿完成');$('camera-panel').hidden=true;$('gesture').hidden=true;$('blow').hidden=true;$('cake-scene').classList.add('blown');setTimeout(()=>{done=true;finishing=false;$('success').hidden=false;$('success-note').textContent=gesture?'今年的蜡烛，我们隔着屏幕一起吹灭啦。':'愿望交给时间，今天的快乐先归你。';document.querySelector('#cake-scene svg').setAttribute('aria-label','蜡烛已熄灭的双层奶油蛋糕');$('reset').hidden=false;celebrate();},1200);}
 $('blow').onclick=()=>finish(false);
 $('gesture').onclick=()=>{$('camera-panel').hidden=false;$('status').textContent='等待开启';};
 $('stop-camera').onclick=()=>stopCamera();
-$('reset').onclick=()=>{stopCamera('等待开启');done=false;finishing=false;$('success').hidden=true;$('reset').hidden=true;$('gesture').hidden=false;$('blow').hidden=false;document.querySelectorAll('.candle').forEach(c=>c.classList.remove('out'));document.querySelector('.candles').setAttribute('aria-label','三支点燃的蜡烛');};
+$('reset').onclick=()=>{stopCamera('等待开启');done=false;finishing=false;$('success').hidden=true;$('reset').hidden=true;$('gesture').hidden=false;$('blow').hidden=false;$('cake-scene').classList.remove('blown');document.querySelector('#cake-scene svg').setAttribute('aria-label','一根粉色蜡烛的双层奶油蛋糕');};
 function timed(promise,ms){let timer;return Promise.race([promise,new Promise((_,reject)=>{timer=setTimeout(()=>reject(new Error('加载超时，请检查网络后重试，也可以点击吹灭蜡烛。')),ms);})]).finally(()=>clearTimeout(timer));}
 $('start-camera').onclick=async()=>{
   if(done||finishing)return;stopCamera('识别加载中…');const current=session;$('start-camera').disabled=true;

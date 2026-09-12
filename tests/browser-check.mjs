@@ -22,7 +22,7 @@ await page.locator('#gesture').click();
 if(!await page.locator('#camera-panel').isVisible())throw Error('手势面板失败');
 await page.locator('#blow').click();
 await page.locator('#reset').waitFor({state:'visible'});
-if(await page.locator('.candle.out').count()!==3)throw Error('蜡烛失败');
+if(!(await page.locator('#cake-scene').getAttribute('class')).includes('blown'))throw Error('蜡烛失败');
 await page.locator('#reset').click();
 await page.locator('#coupon-button').click();
 if(!await page.locator('#coupon').isVisible())throw Error('彩蛋失败');
