@@ -5,12 +5,31 @@ const node=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.classNa
 document.querySelectorAll('[data-name]').forEach(e=>e.textContent=config.name);
 document.querySelectorAll('[data-from]').forEach(e=>e.textContent=config.from);
 $('closing').textContent=config.closing;
-config.years.forEach((y,i)=>{const e=node('article','year');const n=node('div','year-number',y[0]);n.append(node('small','',`0${i+1}`));const b=node('div');b.append(node('h3','',y[1]),node('p','',y[2]));if(y[4])b.append(node('small','muted',y[4]));if(y[3]){const img=node('img');img.src=y[3];img.alt=y[1];img.loading='lazy';b.append(img);}e.append(n,b);$('timeline').append(e);});
+const film=node('div','film-strip');film.setAttribute('role','tablist');film.setAttribute('aria-label','选择一年的回忆');
+const story=node('article','film-story');story.id='year-story';story.setAttribute('role','tabpanel');story.tabIndex=0;
+const frames=[];
+function yearPhoto(y){if(!y[3])return placeholder(`放一张${y[0]}的照片`);const img=node('img');img.src=y[3];img.alt=`${y[0]}：${y[1]}`;img.loading='lazy';img.onerror=()=>img.replaceWith(placeholder('照片暂时无法加载'));return img;}
+function selectYear(index){
+  frames.forEach((frame,i)=>{frame.setAttribute('aria-selected',String(i===index));frame.tabIndex=i===index?0:-1;});
+  const y=config.years[index];story.setAttribute('aria-labelledby',`year-tab-${index}`);
+  const image=node('div','year-photo');image.append(yearPhoto(y));const body=node('div','year-story-text');body.append(node('span','eyebrow',`${y[0]} · ${y[4]||'我们的大学时光'}`),node('h3','',y[1]));
+  y[2].split('\n').filter(Boolean).forEach(p=>body.append(node('p','',p)));story.replaceChildren(image,body);
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches)story.animate([{opacity:.25,translate:'0 10px'},{opacity:1,translate:'0 0'}],{duration:400,easing:'ease-out'});
+}
+config.years.forEach((y,i)=>{const frame=node('button','film-frame');frame.id=`year-tab-${i}`;frame.setAttribute('role','tab');frame.setAttribute('aria-controls','year-story');frame.append(node('span','film-year',`${String(i+1).padStart(2,'0')} / ${y[0]}`),yearPhoto(y),node('span','film-title',y[1]));frame.onclick=()=>selectYear(i);frame.onkeydown=e=>{let next=i;if(e.key==='ArrowRight')next=(i+1)%frames.length;else if(e.key==='ArrowLeft')next=(i+frames.length-1)%frames.length;else if(e.key==='Home')next=0;else if(e.key==='End')next=frames.length-1;else return;e.preventDefault();selectYear(next);frames[next].focus({preventScroll:true});frames[next].scrollIntoView({block:'nearest',inline:'nearest',behavior:'instant'});};frames.push(frame);film.append(frame);});
+$('timeline').classList.add('film-timeline');$('timeline').append(film,story,node('p','hand film-ending','第五年不是片尾，我们还有好多续集。'));selectYear(0);
 function photoBody(photo){if(photo.src){const img=node('img');img.src=photo.src;img.alt=photo.caption;img.loading='lazy';img.onerror=()=>img.replaceWith(placeholder('照片暂时无法加载'));return img;}return placeholder('放一张我们的合照');}
 function placeholder(text){const e=node('div','placeholder');e.append(node('span','','♡'),node('div','',text));return e;}
 config.photos.forEach(photo=>{const b=node('button','polaroid');b.setAttribute('aria-label',`放大：${photo.caption}`);b.append(photoBody(photo),node('p','',photo.caption),node('small','',photo.mark));b.onclick=()=>{$('photo-content').replaceChildren(photoBody(photo),node('p','',photo.caption));$('photo-dialog').showModal();};$('photos').append(b);});
 $('close-photo').onclick=()=>$('photo-dialog').close();$('photo-dialog').onclick=e=>{if(e.target===$('photo-dialog'))$('photo-dialog').close();};
-const revealed=new Set();config.wishes.forEach((wish,i)=>{const b=node('button','wish');const front=()=>{b.replaceChildren(node('span','number',String(i+1).padStart(2,'0')),node('small','','点开小祝愿 ♡'));};front();b.setAttribute('aria-label',`第${i+1}个祝愿，点击翻开`);b.setAttribute('aria-pressed','false');b.onclick=()=>{const on=b.classList.toggle('revealed');b.setAttribute('aria-pressed',String(on));b.setAttribute('aria-label',on?wish:`第${i+1}个祝愿，点击翻开`);if(on){b.textContent=wish;revealed.add(i);}else front();$('wish-count').textContent=`${revealed.size} / 24`;};$('wish-grid').append(b);});
+const wishReward=node('dialog','wish-reward');wishReward.id='wish-reward';wishReward.setAttribute('aria-labelledby','wish-reward-title');
+const closeReward=node('button','secondary','关闭 ×');closeReward.type='button';closeReward.onclick=()=>wishReward.close();
+const rewardImage=node('img');rewardImage.src=config.wishReward.src;rewardImage.alt='阿贾站在盛开的花树下';
+const rewardTitle=node('h2','hand',config.wishReward.caption);rewardTitle.id='wish-reward-title';
+wishReward.append(closeReward,rewardImage,rewardTitle);document.body.append(wishReward);
+wishReward.addEventListener('click',e=>{if(e.target===wishReward){const r=wishReward.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)wishReward.close();}});
+let rewardShown=false;
+const revealed=new Set();config.wishes.forEach((wish,i)=>{const b=node('button','wish');const front=()=>{b.replaceChildren(node('span','number',String(i+1).padStart(2,'0')),node('small','','点开小祝愿 ♡'));};front();b.setAttribute('aria-label',`第${i+1}个祝愿，点击翻开`);b.setAttribute('aria-pressed','false');b.onclick=()=>{const on=b.classList.toggle('revealed');b.setAttribute('aria-pressed',String(on));b.setAttribute('aria-label',on?wish:`第${i+1}个祝愿，点击翻开`);if(on){b.textContent=wish;revealed.add(i);}else front();$('wish-count').textContent=`${revealed.size} / 24`;if(revealed.size===config.wishes.length&&!rewardShown){rewardShown=true;wishReward.showModal();}};$('wish-grid').append(b);});
 config.letter.forEach(p=>$('letter-body').append(node('p','',p)));
 function celebrate(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;for(let i=0;i<35;i++){const e=node('i','confetto');e.style.left=`${Math.random()*100}%`;e.style.background=['#b9a4c9','#e2b6be','#dec793'][i%3];e.style.animationDelay=`${Math.random()*.7}s`;$('confetti').append(e);setTimeout(()=>e.remove(),4000);}}
 $('open').onclick=()=>{$('open').disabled=true;$('opening').classList.add('opened');setTimeout(()=>{$('opening').hidden=true;$('book').hidden=false;window.scrollTo(0,0);const title=document.querySelector('h1');title.tabIndex=-1;title.focus({preventScroll:true});celebrate();},650);};

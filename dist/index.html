@@ -11,28 +11,33 @@
 (()=>{
 // 所有需要个性化的文字、照片和音乐都在这里。图片放入 dist/photos 后填写相对地址。
 const config = {
+  wishReward: {src:'photos/wishes-complete.jpg', caption:'心想事成！'},
   name: '阿贾', from: '树树', music: '', // 例如 music: 'music/birthday.mp3'，留空使用轻柔的合成音乐。
   closing: '开开心心，健健康康～生活要超级幸福，永葆好奇心和创造力，一路顺遂～',
   years: [
-    ['第一年','初见，是故事的开头','从“你好，我是你室友”，到一起去食堂。'],
-    ['第二年','慢慢变成了自己人','越来越熟，也越来越不需要客气。'],
-    ['第三年','深夜，还有你听我说','深夜的聊天，装下了好多白天没说出口的话。'],
-    ['第四年','好消息，第一个告诉你','有烦恼一起吐槽，有好消息第一个分享。'],
-    ['第五年','毕业不是我们的句号','原来五年这么快，还好我们的故事可以继续。']
+    ['第一年','初见，是故事的开头','从“你好，我是你室友”，到一起去食堂。','photos/year-1.jpg'],
+    ['第二年','慢慢变成了自己人','越来越熟，也越来越不需要客气。','photos/year-2.jpg'],
+    ['第三年','深夜，还有你听我说','深夜的聊天，装下了好多白天没说出口的话。','photos/year-3.jpg'],
+    ['第四年','好消息，第一个告诉你','有烦恼一起吐槽，有好消息第一个分享。','photos/year-4.jpg'],
+    ['第五年','毕业不是我们的句号','原来五年这么快，还好我们的故事可以继续。','photos/year-5.jpg']
   ], // 每项可加第4项照片地址、第5项日期，例如 ['第一年','标题','故事','photos/year1.jpg','2021年9月']。
   photos: [
-    {src:'', caption:'和你一起的某个普通日子', mark:'01 / US'},
-    {src:'', caption:'这一刻，值得一直记得', mark:'02 / LITTLE JOYS'},
-    {src:'', caption:'下一张合照，也要一起拍', mark:'03 / TO BE CONTINUED'}
+    {src:'photos/memory-01.jpg', caption:'和你一起的某个普通日子', mark:'01 / US'},
+    {src:'photos/memory-02.jpg', caption:'这一刻，值得一直记得', mark:'02 / LITTLE JOYS'},
+    {src:'photos/memory-03.jpg', caption:'下一张合照，也要一起拍', mark:'03 / TO BE CONTINUED'}
   ],
   wishes: ['愿你喜欢的事，慢慢变成生活的一部分。','愿你遇到的人，都认真听你说话。','愿你钱包和快乐，都越来越有底气。','愿你偶尔摆烂，也能理直气壮。','愿你不用每次都很懂事，也有人坚定地站在你这边。','愿以后见面，我们还是能从第一句话笑到最后一句。','愿你每天都能吃到一口喜欢的东西。','愿你忙完一天，能睡一个踏实的好觉。','愿你的好奇心，总能找到新的小世界。','愿你的奇思妙想，都有机会试一试。','愿你身体健健康康，快乐也常常来报到。','愿你说“不”的时候，不必觉得抱歉。','愿你有重新开始的勇气，也有慢慢来的余地。','愿你出门有好天气，下雨也有人借你一把伞。','愿你认真付出的心意，都被好好珍惜。','愿你想去的地方，都留下你的脚印。','愿你的小小进步，自己也能看见。','愿你总有一首歌，能把心情哄好。','愿你拥有不赶时间的周末。','愿天才女友的灵感，永远不用排队。','愿贵咪局次次成行，想吃的店家家好吃。','愿你幸福的理由，多到备忘录装不下。','愿你走自己的路，一路顺遂，也一路自在。','愿24岁的你，开心做自己，快乐长长久久。'],
   letter: [
-    '一想到要给你写生日祝福，脑子里先冒出来的不是多么了不起的大事，而是“我们居然一起当了五年室友”。从刚认识时还会客气，到后来能放心地分享心事，这份熟悉是日子一点点攒出来的。能在大学里遇到你，我一直觉得很幸运。',
-    '【这里留给我们的真实回忆：换成一次一起点外卖、抢着关灯，或某晚聊到舍不得睡的故事。】有些小事当时觉得平常，回头看才发现，原来有人陪着的普通日子，也那么值得记住。',
-    '谢谢你做我的贵咪，也做那个可以一起笑、一起吐槽的天才女友。希望我们以后都不用为了显得过得很好，才愿意联系对方。开心的事情可以讲，乱七八糟的心情也可以讲，没什么大事也能发一句“在干嘛”。',
-    '24岁啦，希望你开开心心、健健康康，生活要超级幸福。愿你的好奇心和创造力一直都在，想试的事情能慢慢去试，认真走的路一路顺遂。累了就歇一歇，不用每一天都交出漂亮的答案。',
-    '24岁，你可以勇敢往前，也可以慢一点。等我们下次见面，再把最近的生活慢慢讲给对方听。生日快乐，我最好的室友，也是我一直惦记的贵咪。'
-  ]
+    "展信佳，",
+    "一想到要给你写生日祝福，脑子里先冒出来的不是多么了不起的大事，而是“我们居然一起当了五年室友唉！”。回想起来这真是一段超级美好的时光！故事开始于2021年9月，记得我刚准备推开寝室门的瞬间，就对上了你那双圆圆的大眼睛，我有些恍然——仿佛遇见了沈从文笔下的三三。那时的你用清澈的声音和我打招呼，当时的我们或许怎么也想不到后来与彼此会发生那么多的故事：从最开始认识时还会相互客气，到后来开始逐渐靠近彼此，接着开始了话痨互怼、打打闹闹的可爱日常，甚至在深夜里能一直聊、聊到天色渐明，我很高兴在我们的宝贵青春中能相互参与和陪伴~",
+    "能在大学里遇到你，我一直觉得很幸运。如果大学期间没有你，我的生活会多无趣！谢谢你像小福星一样来到人世间，陪我走过北京鲜明的春夏秋冬，给我带了无穷无尽的快乐~",
+    "我们也有过几次摩擦，吵架，由于不同的观念和性格造成了分歧，因为分歧彼此都受了一些伤——或许可以总结为：两个不同的人由于各自的成长变化而需要面对一次次挑战。这一切也让我们明白，我们如何成为自身，又该如何和彼此相处，在成全自己的时候亦成全对方，这就是最大的尊重，也是友谊最大的礼物。谢谢你教给了我这一课。五年的时光里，你是我的益友，给我很多的爱、关心，滋养了我很多本该独自度过的点滴日常；五年后的我发觉，你更是我的良师，教会我如何去珍惜和呵护关系，学会将很多问题“轻拿轻放”。",
+    "谢谢你做我的贵咪，能接住我各种奇思妙想的即兴创作和搞笑抽象的梗，我想这归功于你的细腻，柔软，对友谊、对人的用心与投入。曾经我不由得想，你那些想周全好大家的纠结亦是你的可爱之处，所以我要说——你是那个可以一起笑、一起关怀的天才女友！希望我们以后都不用为了显得过得很好，才愿意联系对方。开心的事情可以讲，乱七八糟的心情也可以讲，没什么大事也能发一句“在干嘛~”。",
+    "今天，你24岁啦！希望你开开心心、健健康康，生活要超级幸福。愿你的好奇心和创造力一直都在，一路顺遂。累了就歇一歇吧，不用每一天都交出很完美的答案。",
+    "24岁，你可以勇敢往前，也可以慢一点，按照自己的节奏开开心心地过每一天哦。这是我第一次用这种形式为你准备生日祝福，希望等我们有下次见面的机会，再把最近的生活慢慢讲给对方听。",
+    "生日快乐！我最好的阿贾，也是我一直惦记的贵咪。",
+    "LOVE U"
+]
 };
 
 // Pure movement evaluator, independent of the camera. Only real, continuous open-palm motion earns progress.
@@ -60,12 +65,31 @@ const node=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.classNa
 document.querySelectorAll('[data-name]').forEach(e=>e.textContent=config.name);
 document.querySelectorAll('[data-from]').forEach(e=>e.textContent=config.from);
 $('closing').textContent=config.closing;
-config.years.forEach((y,i)=>{const e=node('article','year');const n=node('div','year-number',y[0]);n.append(node('small','',`0${i+1}`));const b=node('div');b.append(node('h3','',y[1]),node('p','',y[2]));if(y[4])b.append(node('small','muted',y[4]));if(y[3]){const img=node('img');img.src=y[3];img.alt=y[1];img.loading='lazy';b.append(img);}e.append(n,b);$('timeline').append(e);});
+const film=node('div','film-strip');film.setAttribute('role','tablist');film.setAttribute('aria-label','选择一年的回忆');
+const story=node('article','film-story');story.id='year-story';story.setAttribute('role','tabpanel');story.tabIndex=0;
+const frames=[];
+function yearPhoto(y){if(!y[3])return placeholder(`放一张${y[0]}的照片`);const img=node('img');img.src=y[3];img.alt=`${y[0]}：${y[1]}`;img.loading='lazy';img.onerror=()=>img.replaceWith(placeholder('照片暂时无法加载'));return img;}
+function selectYear(index){
+  frames.forEach((frame,i)=>{frame.setAttribute('aria-selected',String(i===index));frame.tabIndex=i===index?0:-1;});
+  const y=config.years[index];story.setAttribute('aria-labelledby',`year-tab-${index}`);
+  const image=node('div','year-photo');image.append(yearPhoto(y));const body=node('div','year-story-text');body.append(node('span','eyebrow',`${y[0]} · ${y[4]||'我们的大学时光'}`),node('h3','',y[1]));
+  y[2].split('\n').filter(Boolean).forEach(p=>body.append(node('p','',p)));story.replaceChildren(image,body);
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches)story.animate([{opacity:.25,translate:'0 10px'},{opacity:1,translate:'0 0'}],{duration:400,easing:'ease-out'});
+}
+config.years.forEach((y,i)=>{const frame=node('button','film-frame');frame.id=`year-tab-${i}`;frame.setAttribute('role','tab');frame.setAttribute('aria-controls','year-story');frame.append(node('span','film-year',`${String(i+1).padStart(2,'0')} / ${y[0]}`),yearPhoto(y),node('span','film-title',y[1]));frame.onclick=()=>selectYear(i);frame.onkeydown=e=>{let next=i;if(e.key==='ArrowRight')next=(i+1)%frames.length;else if(e.key==='ArrowLeft')next=(i+frames.length-1)%frames.length;else if(e.key==='Home')next=0;else if(e.key==='End')next=frames.length-1;else return;e.preventDefault();selectYear(next);frames[next].focus({preventScroll:true});frames[next].scrollIntoView({block:'nearest',inline:'nearest',behavior:'instant'});};frames.push(frame);film.append(frame);});
+$('timeline').classList.add('film-timeline');$('timeline').append(film,story,node('p','hand film-ending','第五年不是片尾，我们还有好多续集。'));selectYear(0);
 function photoBody(photo){if(photo.src){const img=node('img');img.src=photo.src;img.alt=photo.caption;img.loading='lazy';img.onerror=()=>img.replaceWith(placeholder('照片暂时无法加载'));return img;}return placeholder('放一张我们的合照');}
 function placeholder(text){const e=node('div','placeholder');e.append(node('span','','♡'),node('div','',text));return e;}
 config.photos.forEach(photo=>{const b=node('button','polaroid');b.setAttribute('aria-label',`放大：${photo.caption}`);b.append(photoBody(photo),node('p','',photo.caption),node('small','',photo.mark));b.onclick=()=>{$('photo-content').replaceChildren(photoBody(photo),node('p','',photo.caption));$('photo-dialog').showModal();};$('photos').append(b);});
 $('close-photo').onclick=()=>$('photo-dialog').close();$('photo-dialog').onclick=e=>{if(e.target===$('photo-dialog'))$('photo-dialog').close();};
-const revealed=new Set();config.wishes.forEach((wish,i)=>{const b=node('button','wish');const front=()=>{b.replaceChildren(node('span','number',String(i+1).padStart(2,'0')),node('small','','点开小祝愿 ♡'));};front();b.setAttribute('aria-label',`第${i+1}个祝愿，点击翻开`);b.setAttribute('aria-pressed','false');b.onclick=()=>{const on=b.classList.toggle('revealed');b.setAttribute('aria-pressed',String(on));b.setAttribute('aria-label',on?wish:`第${i+1}个祝愿，点击翻开`);if(on){b.textContent=wish;revealed.add(i);}else front();$('wish-count').textContent=`${revealed.size} / 24`;};$('wish-grid').append(b);});
+const wishReward=node('dialog','wish-reward');wishReward.id='wish-reward';wishReward.setAttribute('aria-labelledby','wish-reward-title');
+const closeReward=node('button','secondary','关闭 ×');closeReward.type='button';closeReward.onclick=()=>wishReward.close();
+const rewardImage=node('img');rewardImage.src=config.wishReward.src;rewardImage.alt='阿贾站在盛开的花树下';
+const rewardTitle=node('h2','hand',config.wishReward.caption);rewardTitle.id='wish-reward-title';
+wishReward.append(closeReward,rewardImage,rewardTitle);document.body.append(wishReward);
+wishReward.addEventListener('click',e=>{if(e.target===wishReward){const r=wishReward.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)wishReward.close();}});
+let rewardShown=false;
+const revealed=new Set();config.wishes.forEach((wish,i)=>{const b=node('button','wish');const front=()=>{b.replaceChildren(node('span','number',String(i+1).padStart(2,'0')),node('small','','点开小祝愿 ♡'));};front();b.setAttribute('aria-label',`第${i+1}个祝愿，点击翻开`);b.setAttribute('aria-pressed','false');b.onclick=()=>{const on=b.classList.toggle('revealed');b.setAttribute('aria-pressed',String(on));b.setAttribute('aria-label',on?wish:`第${i+1}个祝愿，点击翻开`);if(on){b.textContent=wish;revealed.add(i);}else front();$('wish-count').textContent=`${revealed.size} / 24`;if(revealed.size===config.wishes.length&&!rewardShown){rewardShown=true;wishReward.showModal();}};$('wish-grid').append(b);});
 config.letter.forEach(p=>$('letter-body').append(node('p','',p)));
 function celebrate(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;for(let i=0;i<35;i++){const e=node('i','confetto');e.style.left=`${Math.random()*100}%`;e.style.background=['#b9a4c9','#e2b6be','#dec793'][i%3];e.style.animationDelay=`${Math.random()*.7}s`;$('confetti').append(e);setTimeout(()=>e.remove(),4000);}}
 $('open').onclick=()=>{$('open').disabled=true;$('opening').classList.add('opened');setTimeout(()=>{$('opening').hidden=true;$('book').hidden=false;window.scrollTo(0,0);const title=document.querySelector('h1');title.tabIndex=-1;title.focus({preventScroll:true});celebrate();},650);};
