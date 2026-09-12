@@ -1,0 +1,7 @@
+.sites-runtime/
+node_modules/
+*.zip
+*.tar.gz
+版本备份/
+.openai/
+tests/*.png

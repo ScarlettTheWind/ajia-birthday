@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f8f3e9"><meta name="description" content="树树写给阿贾的24岁生日纪念册。五年室友，一直是贵咪。"><title>阿贾，24岁生日快乐！</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%238678a2'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-size='23' fill='white'%3E♡%3C/text%3E%3C/svg%3E"><link rel="stylesheet" href="style.css"></head>
+<body><div id="confetti" aria-hidden="true"></div><header><a href="#" class="brand">A LETTER FOR <b>阿贾</b> ♡</a><button id="music" class="text-button">♫ 播放音乐</button></header>
+<section id="opening" class="opening"><p class="eyebrow">SPECIAL DELIVERY · 2026.09.25</p><p class="hand small-title">有些偏爱，想亲手交给你。</p><div class="envelope"><div class="letter-peek">给我最好的贵咪的一封信 ♡</div><div class="envelope-front"><span class="postmark">WITH LOVE<br>09 / 25</span><p class="hand to">To：<span data-name>阿贾</span></p><p>有一份来自神秘贵咪的生日礼物，<br>请你亲自拆开。</p><button id="open" class="primary">拆开这份偏爱 <span>↗</span></button><p class="sender">From：<span data-from>树树</span></p></div></div><p class="opening-foot">五年同一个屋檐 · 往后还有好多好多年</p></section>
+<main id="book" hidden><nav aria-label="纪念册章节"><a href="#years">我们的五年</a><a href="#album">回忆相册</a><a href="#wishes">24个祝愿</a><a href="#letter">一封信</a><a href="#birthday">许个愿吧</a></nav><section class="hero section"><span class="eyebrow">CHAPTER 24 · A NEW LITTLE ADVENTURE</span><div class="hero-number" aria-hidden="true">24<span>♡</span></div><h1><span data-name>阿贾</span>，生日快乐。</h1><p class="hand hero-script">我的室友兼终身闺蜜！</p><p>五年的同一个屋檐，<br>把你变成了我青春里最熟悉的人。</p><a class="underlink" href="#years">往下翻翻，我们的故事 ↓</a><div class="margin-note hand">天才女友<br>今天你最大 ✧</div></section>
+<section id="years" class="section"><div class="section-heading"><div><span class="eyebrow">01 / OUR FIVE YEARS</span><h2>把五年，慢慢翻一遍。</h2></div><span class="hand accent">从室友，到自己人。</span></div><p class="edit-note">以下是回忆草稿，等树树换成我们真正的故事。</p><div id="timeline" class="timeline"></div></section>
+<section id="album" class="section album-section"><div class="section-heading"><div><span class="eyebrow">02 / LITTLE MOMENTS</span><h2>普通日子，也闪闪发光。</h2></div><span class="hand accent">合照里，总有你 ♡</span></div><div id="photos" class="photos"></div></section>
+<section id="wishes" class="section"><span class="eyebrow">03 / TWENTY-FOUR WISHES</span><h2>24岁，送你24个小祝愿。</h2><p class="muted">轻轻翻开，每一张都是偏爱。 <span id="wish-count">0 / 24</span></p><div id="wish-grid" class="wish-grid"></div></section>
+<section id="letter" class="section"><article class="letter-sheet"><span class="eyebrow">04 / DEAR YOU</span><h2>有些话，想好好写给你。</h2><p class="hand salutation">亲爱的<span data-name>阿贾</span>：</p><div id="letter-body"></div><p class="signature hand">一直惦记你的贵咪，<span data-from>树树</span><br><small>2026 年 9 月 25 日</small></p></article></section>
+<section id="birthday" class="section birthday"><span class="eyebrow">05 / MAKE A WISH</span><h2>先许愿，剩下的交给时间。</h2><p>闭上眼睛，给24岁的自己留一个小秘密。</p><div class="cake-scene" id="cake-scene"><div class="candles" aria-label="三支点燃的蜡烛"><span class="candle"><i class="flame"></i></span><span class="candle"><i class="flame"></i></span><span class="candle"><i class="flame"></i></span></div><div class="cake-emoji" aria-hidden="true">🎂</div><span class="wind" aria-hidden="true">〰 〰</span><span class="hand cake-caption">a little wish for you</span></div><div id="success" hidden aria-live="polite"><h3>24岁生日快乐，<span data-name>阿贾</span>！</h3><p>愿你刚刚许下的愿望，都在往后的日子里慢慢实现。</p><p id="success-note"></p></div><div class="actions"><button id="gesture" class="primary">🖐 用手势吹蜡烛</button><button id="blow" class="secondary">点击吹灭蜡烛</button><button id="reset" class="secondary" hidden>再许一个愿</button></div><div id="camera-panel" class="camera-panel" hidden><p>先在心里许一个愿吧。张开手掌，左右挥一挥，<br>让小小的风替你吹灭蜡烛。</p><p class="privacy">摄像头仅用于识别挥手动作，画面不会保存或上传。</p><div class="camera-controls"><button id="start-camera" class="primary">开启摄像头</button><button id="stop-camera" class="secondary">关闭摄像头</button></div><div class="camera-live"><video id="video" muted playsinline aria-label="镜像摄像头预览" hidden></video><div><p id="status" role="status">等待开启</p><label for="wind-progress">微风值</label><progress id="wind-progress" max="100" value="0"></progress></div></div></div><div class="coupon-wrap"><button id="coupon-button" class="text-button">✧ 点击领取闺蜜专属福利 ↗</button><div id="coupon" hidden><span class="eyebrow">BESTIE PASS · 永久有效</span><h3>陪伴券 ♡</h3><p>聊天、吃饭、散步，具体时间我们商量！</p><small>持券人：阿贾　 /　 发行人：树树</small></div></div></section><footer><p class="hand" id="closing"></p><p>MADE WITH LOVE · 树树 → 阿贾 · 2026</p></footer></main><dialog id="photo-dialog"><button id="close-photo" class="secondary">关闭 ×</button><div id="photo-content"></div></dialog><audio id="audio" loop preload="none"></audio><script id="birthday-app">
+(()=>{
+// 所有需要个性化的文字、照片和音乐都在这里。图片放入 dist/photos 后填写相对地址。
+const config = {
+  name: '阿贾', from: '树树', music: '', // 例如 music: 'music/birthday.mp3'，留空使用轻柔的合成音乐。
+  closing: '开开心心，健健康康～生活要超级幸福，永葆好奇心和创造力，一路顺遂～',
+  years: [
+    ['第一年','初见，是故事的开头','从“你好，我是你室友”，到一起去食堂。'],
+    ['第二年','慢慢变成了自己人','越来越熟，也越来越不需要客气。'],
+    ['第三年','深夜，还有你听我说','深夜的聊天，装下了好多白天没说出口的话。'],
+    ['第四年','好消息，第一个告诉你','有烦恼一起吐槽，有好消息第一个分享。'],
+    ['第五年','毕业不是我们的句号','原来五年这么快，还好我们的故事可以继续。']
+  ], // 每项可加第4项照片地址、第5项日期，例如 ['第一年','标题','故事','photos/year1.jpg','2021年9月']。
+  photos: [
+    {src:'', caption:'和你一起的某个普通日子', mark:'01 / US'},
+    {src:'', caption:'这一刻，值得一直记得', mark:'02 / LITTLE JOYS'},
+    {src:'', caption:'下一张合照，也要一起拍', mark:'03 / TO BE CONTINUED'}
+  ],
+  wishes: ['愿你喜欢的事，慢慢变成生活的一部分。','愿你遇到的人，都认真听你说话。','愿你钱包和快乐，都越来越有底气。','愿你偶尔摆烂，也能理直气壮。','愿你不用每次都很懂事，也有人坚定地站在你这边。','愿以后见面，我们还是能从第一句话笑到最后一句。','愿你每天都能吃到一口喜欢的东西。','愿你忙完一天，能睡一个踏实的好觉。','愿你的好奇心，总能找到新的小世界。','愿你的奇思妙想，都有机会试一试。','愿你身体健健康康，快乐也常常来报到。','愿你说“不”的时候，不必觉得抱歉。','愿你有重新开始的勇气，也有慢慢来的余地。','愿你出门有好天气，下雨也有人借你一把伞。','愿你认真付出的心意，都被好好珍惜。','愿你想去的地方，都留下你的脚印。','愿你的小小进步，自己也能看见。','愿你总有一首歌，能把心情哄好。','愿你拥有不赶时间的周末。','愿天才女友的灵感，永远不用排队。','愿贵咪局次次成行，想吃的店家家好吃。','愿你幸福的理由，多到备忘录装不下。','愿你走自己的路，一路顺遂，也一路自在。','愿24岁的你，开心做自己，快乐长长久久。'],
+  letter: [
+    '一想到要给你写生日祝福，脑子里先冒出来的不是多么了不起的大事，而是“我们居然一起当了五年室友”。从刚认识时还会客气，到后来能放心地分享心事，这份熟悉是日子一点点攒出来的。能在大学里遇到你，我一直觉得很幸运。',
+    '【这里留给我们的真实回忆：换成一次一起点外卖、抢着关灯，或某晚聊到舍不得睡的故事。】有些小事当时觉得平常，回头看才发现，原来有人陪着的普通日子，也那么值得记住。',
+    '谢谢你做我的贵咪，也做那个可以一起笑、一起吐槽的天才女友。希望我们以后都不用为了显得过得很好，才愿意联系对方。开心的事情可以讲，乱七八糟的心情也可以讲，没什么大事也能发一句“在干嘛”。',
+    '24岁啦，希望你开开心心、健健康康，生活要超级幸福。愿你的好奇心和创造力一直都在，想试的事情能慢慢去试，认真走的路一路顺遂。累了就歇一歇，不用每一天都交出漂亮的答案。',
+    '24岁，你可以勇敢往前，也可以慢一点。等我们下次见面，再把最近的生活慢慢讲给对方听。生日快乐，我最好的室友，也是我一直惦记的贵咪。'
+  ]
+};
+
+// Pure movement evaluator, independent of the camera. Only real, continuous open-palm motion earns progress.
+class WaveMeter {
+  constructor(){this.reset();}
+  reset(){this.samples=[];this.progress=0;this.last=0;this.lastMotion=0;}
+  update(hand, now){
+    const dt=this.last ? Math.min(now-this.last,120) : 0;this.last=now;
+    const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
+    const open=hand && [8,12,16,20].filter(i=>distance(hand[i],hand[0])>distance(hand[i-2],hand[0])*1.22).length>=3;
+    if(!open){this.samples=[];this.progress=Math.max(0,this.progress-dt*.018);return {progress:this.progress,open:false,moving:false};}
+    const x=(hand[0].x+hand[5].x+hand[9].x+hand[13].x+hand[17].x)/5;
+    const prev=this.samples.at(-1);this.samples.push({x,t:now});this.samples=this.samples.filter(s=>now-s.t<800);
+    const range=Math.max(...this.samples.map(s=>s.x))-Math.min(...this.samples.map(s=>s.x));
+    const speed=prev && now>prev.t ? Math.abs(x-prev.x)/(now-prev.t):0;
+    const moving=this.samples.length>=3 && range>.095 && speed>.00012 && speed<.006;
+    if(moving){this.lastMotion=now;this.progress=Math.min(100,this.progress+dt*.044);}
+    else if(now-this.lastMotion>350)this.progress=Math.max(0,this.progress-dt*.012);
+    return {progress:this.progress,open:true,moving};
+  }
+}
+
+const $=id=>document.getElementById(id);
+const node=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;};
+document.querySelectorAll('[data-name]').forEach(e=>e.textContent=config.name);
+document.querySelectorAll('[data-from]').forEach(e=>e.textContent=config.from);
+$('closing').textContent=config.closing;
+config.years.forEach((y,i)=>{const e=node('article','year');const n=node('div','year-number',y[0]);n.append(node('small','',`0${i+1}`));const b=node('div');b.append(node('h3','',y[1]),node('p','',y[2]));if(y[4])b.append(node('small','muted',y[4]));if(y[3]){const img=node('img');img.src=y[3];img.alt=y[1];img.loading='lazy';b.append(img);}e.append(n,b);$('timeline').append(e);});
+function photoBody(photo){if(photo.src){const img=node('img');img.src=photo.src;img.alt=photo.caption;img.loading='lazy';img.onerror=()=>img.replaceWith(placeholder('照片暂时无法加载'));return img;}return placeholder('放一张我们的合照');}
+function placeholder(text){const e=node('div','placeholder');e.append(node('span','','♡'),node('div','',text));return e;}
+config.photos.forEach(photo=>{const b=node('button','polaroid');b.setAttribute('aria-label',`放大：${photo.caption}`);b.append(photoBody(photo),node('p','',photo.caption),node('small','',photo.mark));b.onclick=()=>{$('photo-content').replaceChildren(photoBody(photo),node('p','',photo.caption));$('photo-dialog').showModal();};$('photos').append(b);});
+$('close-photo').onclick=()=>$('photo-dialog').close();$('photo-dialog').onclick=e=>{if(e.target===$('photo-dialog'))$('photo-dialog').close();};
+const revealed=new Set();config.wishes.forEach((wish,i)=>{const b=node('button','wish');const front=()=>{b.replaceChildren(node('span','number',String(i+1).padStart(2,'0')),node('small','','点开小祝愿 ♡'));};front();b.setAttribute('aria-label',`第${i+1}个祝愿，点击翻开`);b.setAttribute('aria-pressed','false');b.onclick=()=>{const on=b.classList.toggle('revealed');b.setAttribute('aria-pressed',String(on));b.setAttribute('aria-label',on?wish:`第${i+1}个祝愿，点击翻开`);if(on){b.textContent=wish;revealed.add(i);}else front();$('wish-count').textContent=`${revealed.size} / 24`;};$('wish-grid').append(b);});
+config.letter.forEach(p=>$('letter-body').append(node('p','',p)));
+function celebrate(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;for(let i=0;i<35;i++){const e=node('i','confetto');e.style.left=`${Math.random()*100}%`;e.style.background=['#b9a4c9','#e2b6be','#dec793'][i%3];e.style.animationDelay=`${Math.random()*.7}s`;$('confetti').append(e);setTimeout(()=>e.remove(),4000);}}
+$('open').onclick=()=>{$('open').disabled=true;$('opening').classList.add('opened');setTimeout(()=>{$('opening').hidden=true;$('book').hidden=false;window.scrollTo(0,0);const title=document.querySelector('h1');title.tabIndex=-1;title.focus({preventScroll:true});celebrate();},650);};
+$('coupon-button').onclick=()=>{$('coupon').hidden=!$('coupon').hidden;$('coupon-button').setAttribute('aria-expanded',String(!$('coupon').hidden));};
+let audioContext,masterGain,musicTimer,musicOn=false,noteIndex=0,musicEpoch=0;
+let volume=.25;
+// Happy Birthday, in C major. Durations are quarter-note beats.
+const birthdayMelody=[[67,.75],[67,.25],[69,1],[67,1],[72,1],[71,2],[67,.75],[67,.25],[69,1],[67,1],[74,1],[72,2],[67,.75],[67,.25],[79,1],[76,1],[72,1],[71,1],[69,2],[77,.75],[77,.25],[76,1],[72,1],[74,1],[72,3]];
+const volumeLabel=node('label','music-volume','音量');
+const slider=node('input');slider.type='range';slider.min='0';slider.max='100';slider.value='25';slider.setAttribute('aria-label','背景音乐音量');volumeLabel.append(slider);$('music').after(volumeLabel);
+slider.oninput=()=>{volume=Number(slider.value)/100;$('audio').volume=volume;if(masterGain&&musicOn)masterGain.gain.setTargetAtTime(volume,audioContext.currentTime,.06);};
+function nextNote(){
+  if(!musicOn)return;
+  const [midi,beats]=birthdayMelody[noteIndex];const t=audioContext.currentTime;
+  for(const [ratio,level] of [[1,.24],[2,.065],[3,.018]]){
+    const o=audioContext.createOscillator(),g=audioContext.createGain();o.type='sine';o.frequency.value=440*2**((midi-69)/12)*ratio;
+    g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(level,t+.012);g.gain.exponentialRampToValueAtTime(.0001,t+1.5);o.connect(g).connect(masterGain);o.start(t);o.stop(t+1.55);
+  }
+  noteIndex=(noteIndex+1)%birthdayMelody.length;
+  musicTimer=setTimeout(nextNote,beats*460+(noteIndex===0?1800:0));
+}
+async function stopMusic(immediate=false){
+  const epoch=++musicEpoch;musicOn=false;clearTimeout(musicTimer);
+  if(masterGain){masterGain.gain.cancelScheduledValues(audioContext.currentTime);masterGain.gain.setTargetAtTime(0,audioContext.currentTime,.08);}
+  const startVolume=$('audio').volume;
+  if(!immediate)for(let i=1;i<=6;i++){await new Promise(r=>setTimeout(r,35));if(epoch!==musicEpoch)return;$('audio').volume=startVolume*(1-i/6);}
+  if(epoch!==musicEpoch)return;$('audio').pause();if(audioContext)await audioContext.suspend();$('music').textContent='♫ 生日快乐歌';$('music').setAttribute('aria-pressed','false');
+}
+$('music').textContent='♫ 生日快乐歌';
+$('music').onclick=async()=>{
+  if(musicOn){await stopMusic();return;}const epoch=++musicEpoch;
+  try{
+    if(config.music){if(!$('audio').getAttribute('src'))$('audio').src=config.music;$('audio').volume=0;await $('audio').play();}
+    else{audioContext??=new AudioContext();if(!masterGain){masterGain=audioContext.createGain();masterGain.gain.value=0;masterGain.connect(audioContext.destination);}await audioContext.resume();}
+    if(epoch!==musicEpoch)return;musicOn=true;$('music').textContent='Ⅱ 暂停音乐';$('music').setAttribute('aria-pressed','true');
+    if(config.music){for(let i=1;i<=8;i++){await new Promise(r=>setTimeout(r,40));if(epoch!==musicEpoch)return;$('audio').volume=volume*i/8;}}
+    else{masterGain.gain.cancelScheduledValues(audioContext.currentTime);masterGain.gain.setTargetAtTime(volume,audioContext.currentTime,.15);nextNote();}
+  }catch{await stopMusic(true);$('music').textContent='音乐暂时无法播放，点击重试';}
+};
+
+const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
+if(!reducedMotion.matches&&'IntersectionObserver' in window){
+  const reveal=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting){entry.target.classList.add('in-view');reveal.unobserve(entry.target);}},{threshold:.06});
+  document.querySelectorAll('.section,.year,.polaroid,.wish,.letter-sheet').forEach(e=>{e.classList.add('reveal');if(e.matches('.wish,.polaroid')){const siblings=[...e.parentElement.children];const columns=e.matches('.wish')?(innerWidth<=700?3:6):3;e.style.setProperty('--reveal-delay',`${siblings.indexOf(e)%columns*80}ms`);}reveal.observe(e);});
+  reducedMotion.addEventListener('change',()=>{if(reducedMotion.matches){document.querySelectorAll('.reveal').forEach(e=>e.classList.add('in-view'));reveal.disconnect();}});
+}
+
+// The timeline follows the reader's scroll; no scroll locking or page snapping.
+const timeline=$('timeline');let scrollFrame=0;
+function updateTimeline(){scrollFrame=0;const r=timeline.getBoundingClientRect();const fraction=Math.max(0,Math.min(1,(innerHeight*.76-r.top)/r.height));timeline.style.setProperty('--timeline-progress',reducedMotion.matches?1:fraction);}
+window.addEventListener('scroll',()=>{if(!scrollFrame)scrollFrame=requestAnimationFrame(updateTimeline);},{passive:true});
+window.addEventListener('resize',updateTimeline);updateTimeline();
+// Start on the first intentional opening gesture, where browser audio policies allow it.
+$('open').addEventListener('click',()=>{if(!musicOn)void $('music').onclick();});
+document.addEventListener('click',e=>{
+  const button=e.target.closest('button');if(!button||button.disabled||reducedMotion.matches)return;
+  if(button.matches('.wish'))button.animate([{rotate:'y -75deg',opacity:.5},{rotate:'y 0deg',opacity:1}],{duration:360,easing:'ease-out'});
+  else button.animate([{scale:'0.96'},{scale:'1.025'},{scale:'1'}],{duration:260,easing:'ease-out'});
+});
+let stream,landmarker,raf=0,session=0,lastFrame=0,lastVideoTime=-1,done=false,finishing=false;
+const meter=new WaveMeter();
+function stopCamera(message='摄像头已关闭，可以重新开启或点击吹灭蜡烛。'){
+  session++;cancelAnimationFrame(raf);raf=0;stream?.getTracks().forEach(t=>t.stop());stream=null;$('video').srcObject=null;$('video').hidden=true;
+  landmarker?.close();landmarker=null;$('start-camera').disabled=false;$('status').textContent=message;$('cake-scene').classList.remove('windy');meter.reset();$('wind-progress').value=0;
+}
+function finish(gesture){if(done||finishing)return;finishing=true;stopCamera('许愿完成');$('camera-panel').hidden=true;$('gesture').hidden=true;$('blow').hidden=true;document.querySelectorAll('.candle').forEach((c,i)=>setTimeout(()=>c.classList.add('out'),i*250));setTimeout(()=>{done=true;finishing=false;$('success').hidden=false;$('success-note').textContent=gesture?'今年的蜡烛，我们隔着屏幕一起吹灭啦。':'愿望交给时间，今天的快乐先归你。';document.querySelector('.candles').setAttribute('aria-label','蜡烛已全部熄灭');$('reset').hidden=false;celebrate();},800);}
+$('blow').onclick=()=>finish(false);
+$('gesture').onclick=()=>{$('camera-panel').hidden=false;$('status').textContent='等待开启';};
+$('stop-camera').onclick=()=>stopCamera();
+$('reset').onclick=()=>{stopCamera('等待开启');done=false;finishing=false;$('success').hidden=true;$('reset').hidden=true;$('gesture').hidden=false;$('blow').hidden=false;document.querySelectorAll('.candle').forEach(c=>c.classList.remove('out'));document.querySelector('.candles').setAttribute('aria-label','三支点燃的蜡烛');};
+function timed(promise,ms){let timer;return Promise.race([promise,new Promise((_,reject)=>{timer=setTimeout(()=>reject(new Error('加载超时，请检查网络后重试，也可以点击吹灭蜡烛。')),ms);})]).finally(()=>clearTimeout(timer));}
+$('start-camera').onclick=async()=>{
+  if(done||finishing)return;stopCamera('识别加载中…');const current=session;$('start-camera').disabled=true;
+  try{
+    if(!window.isSecureContext||!navigator.mediaDevices?.getUserMedia)throw new Error('当前环境不能开启摄像头，请使用 HTTPS 或 localhost，也可以点击吹灭蜡烛。');
+    $('status').textContent='请允许摄像头访问；不需要麦克风权限。';
+    const camera=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user',width:{ideal:640},height:{ideal:480}},audio:false});
+    if(current!==session){camera.getTracks().forEach(t=>t.stop());return;}stream=camera;$('video').srcObject=stream;$('video').hidden=false;await timed($('video').play(),10000);if(current!==session)return;
+    $('status').textContent='识别加载中，第一次需要下载手部识别模型…';
+    const initialize=async()=>{const {HandLandmarker,FilesetResolver}=await import('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.21/vision_bundle.mjs');const files=await FilesetResolver.forVisionTasks('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.21/wasm');return HandLandmarker.createFromOptions(files,{baseOptions:{modelAssetPath:'https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task',delegate:'CPU'},runningMode:'VIDEO',numHands:1,minHandDetectionConfidence:.6,minHandPresenceConfidence:.6,minTrackingConfidence:.6});};
+    const pending=initialize();pending.then(model=>{if(current!==session)model.close();},()=>{});
+    const model=await timed(pending,30000);if(current!==session)return;landmarker=model;meter.reset();lastFrame=0;lastVideoTime=-1;$('status').textContent='把手掌放进画面里，亮一点会更容易认出哦。';
+    const frame=now=>{if(current!==session||!landmarker)return;try{if(now-lastFrame>66&&$('video').readyState>=2&&$('video').currentTime!==lastVideoTime){lastFrame=now;lastVideoTime=$('video').currentTime;const result=landmarker.detectForVideo($('video'),now);const wave=meter.update(result.landmarks[0],now);$('wind-progress').value=wave.progress;$('cake-scene').classList.toggle('windy',wave.moving);$('status').textContent=wave.moving?'挥手中，小小的风正在吹向蜡烛…':wave.open?'看到你的手啦，左右挥一挥。':'没有看到张开的手掌，把手掌放进画面里，亮一点会更容易认出哦。';if(wave.progress>=100){finish(true);return;}}raf=requestAnimationFrame(frame);}catch{stopCamera('识别暂时中断，可以重新开启或点击吹灭蜡烛。');}};
+    raf=requestAnimationFrame(frame);
+  }catch(error){if(current!==session)return;const messages={NotAllowedError:'摄像头权限未开启，可以在浏览器设置中允许，或直接点击吹灭蜡烛。',NotFoundError:'没有找到摄像头，点击吹灭蜡烛也能完成许愿。',NotReadableError:'摄像头可能被其他应用占用，请关闭后重试，或点击吹灭蜡烛。'};stopCamera(messages[error.name]||error.message||'识别加载失败，请点击吹灭蜡烛。');}
+};
+document.addEventListener('visibilitychange',()=>{if(document.hidden){stopCamera();void stopMusic();}});
+window.addEventListener('pagehide',()=>{stopCamera();void stopMusic();});
+new IntersectionObserver(entries=>{if(!entries[0].isIntersecting&&(stream||$('start-camera').disabled))stopCamera();},{threshold:0}).observe($('birthday'));
+
+// Cinematic accents stay decorative and never capture clicks or scrolling.
+const heartCurtain=node('div','heart-curtain');heartCurtain.setAttribute('aria-hidden','true');heartCurtain.textContent='♥';document.body.append(heartCurtain);
+$('open').addEventListener('click',()=>{if(reducedMotion.matches)return;heartCurtain.classList.add('playing');setTimeout(()=>heartCurtain.remove(),1400);});
+const paper=document.querySelector('.letter-sheet');
+for(const side of ['top','bottom']){const fold=node('div','paper-fold '+side);fold.setAttribute('aria-hidden','true');paper.append(fold);}
+const stars=node('div','cinema-stars');stars.setAttribute('aria-hidden','true');
+for(let i=0;i<12;i++){const star=node('span','','✧');star.style.left=`${8+(i*23)%84}%`;star.style.top=`${8+(i*17)%60}%`;star.style.animationDelay=`${i*.23}s`;stars.append(star);}$('birthday').prepend(stars);
+let cinemaFrame=0;
+function sceneProgress(){cinemaFrame=0;const rect=$('birthday').getBoundingClientRect();const progress=reducedMotion.matches?1:Math.max(0,Math.min(1,(innerHeight-rect.top)/(innerHeight*.6)));$('birthday').style.setProperty('--night',progress);}
+window.addEventListener('scroll',()=>{if(!cinemaFrame)cinemaFrame=requestAnimationFrame(sceneProgress);},{passive:true});window.addEventListener('resize',sceneProgress);sceneProgress();
+
+})();
+</script></body></html>

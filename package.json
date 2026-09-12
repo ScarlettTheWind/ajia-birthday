@@ -1,0 +1,1 @@
+{"name":"ajia-birthday","private":true,"type":"module","scripts":{"start":"node server.mjs","build":"node build-inline.mjs","backup":"node backup-version.mjs","check":"node --check dist/app.js && node --check dist/config.js && node --check dist/gesture.js","test":"node --test tests/gesture.test.js"}}

@@ -1,0 +1,13 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import {backupVersion} from './backup-version.mjs';
+const read=name=>readFile(`dist/${name}`,'utf8');
+const config=(await read('config.js')).replace('export const config','const config');
+const gesture=(await read('gesture.js')).replace('export class WaveMeter','class WaveMeter');
+const app=(await read('app.js')).replace(/^import .*;\r?\n/gm,'');
+const script=`<script id="birthday-app">\n(()=>{\n${config}\n${gesture}\n${app}\n})();\n</script>`;
+const html=await read('index.html');
+const pattern=/<script(?: type="module" src="app.js"| id="birthday-app")>[\s\S]*?<\/script>/;
+if(!pattern.test(html))throw new Error('找不到应用脚本位置');
+await writeFile('dist/index.html',html.replace(pattern,()=>script));
+console.log('基础交互已内嵌，摄像头识别仍按需加载。');
+await backupVersion('生成网站版本');
