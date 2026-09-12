@@ -247,6 +247,26 @@ new IntersectionObserver(entries=>{reelVisible=entries[0].isIntersecting;reelSta
 
 
 })();
-</script></body></html>
+</script><style>
+#cake-scene.cake-three-ready{height:370px;padding:0;margin:0 auto 22px;position:relative;max-width:560px;width:100%}
+#cake-scene.cake-three-ready>svg{display:none}
+#cake-scene canvas{display:block;width:100%;height:100%;touch-action:none}
+#cake-scene:not(.cake-three-ready)>canvas{display:none}
+@media(max-width:600px){#cake-scene.cake-three-ready{height:320px}}
+</style>
+<script type="module">
+import {createCake} from './cake-three.js';
+const host=document.getElementById('cake-scene');
+const cake=createCake(host);
+if(cake){
+ const sync=()=>cake.setState(host.classList.contains('blown')?'blown':host.classList.contains('windy')?'blowing':'lit');
+ const observer=new MutationObserver(sync);observer.observe(host,{attributes:true,attributeFilter:['class']});sync();
+ // External component interface: dispatch CustomEvent('cake-state',{detail:'blowing'|'blown'|'lit'}).
+ host.addEventListener('cake-state',e=>cake.setState(e.detail));
+ window.addEventListener('pagehide',()=>{observer.disconnect();cake.dispose();},{once:true});
+}
+</script>
+</body></html>
+
 
 
